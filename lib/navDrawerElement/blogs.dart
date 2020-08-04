@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
 
-class ChatBlog extends StatefulWidget {
+class Blogs extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() => ChatBlogState();
+  State<StatefulWidget> createState() => BlogState();
 }
 
-class ChatBlogState extends State<ChatBlog> {
+class BlogState extends State<Blogs> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Color(0xffff6f00),
+        title: Text("Blogs"),
+      ),
       body: Center(
         child: Column(
           children: <Widget>[

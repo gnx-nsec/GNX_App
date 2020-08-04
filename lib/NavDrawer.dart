@@ -1,9 +1,12 @@
 // ignore: unused_import
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:gnxapp/navDrawerElement/faculty.dart';
 import 'package:gnxapp/navDrawerElement/profile.dart';
-
 import 'navDrawerElement/events.dart';
+import 'navDrawerElement/blogs.dart';
+import 'navDrawerElement/faculty.dart';
+import 'navDrawerElement/aboutUs.dart';
 
 class NavDrawer extends StatefulWidget {
   @override
@@ -59,15 +62,27 @@ class DrawerState extends State<NavDrawer> {
           ),
           ListTile(
             leading: Icon(Icons.chat),
-            title: Text("CONTACT US"),
+            title: Text("BLOGS"),
+            onTap: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => Blogs()));
+            },
           ),
           ListTile(
             leading: Icon(Icons.people),
-            title: Text("ABOUT US"),
+            title: Text("FACULTY"),
+            onTap: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => Faculty()));
+            },
           ),
           ListTile(
-            leading: Icon(Icons.power_settings_new),
-            title: Text("LOGOUT"),
+            leading: Icon(Icons.developer_board),
+            title: Text("ABOUT US"),
+            onTap: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => AboutUS()));
+            },
           )
         ],
       ),
