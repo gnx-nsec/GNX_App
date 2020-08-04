@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gnxapp/routes/routes.dart';
 import 'package:gnxapp/subscribe/subscribe.dart';
 
 void main() => runApp(MyApp());
@@ -21,6 +22,10 @@ class MyApp extends StatelessWidget {
         ),
       ),
       home: Subscribe(),
+      routes: {
+        // Direct your route variables to their respective page
+        Routes.subscribeRoute: (context) => Subscribe(),
+      },
     );
   }
 }
