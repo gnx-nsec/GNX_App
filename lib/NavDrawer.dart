@@ -81,7 +81,7 @@ class DrawerState extends State<NavDrawer> {
             title: Text("ABOUT US"),
             onTap: () {
               Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => AboutUS()));
+                  context, MaterialPageRoute(builder: (context) => AboutUs()));
             },
           )
         ],
