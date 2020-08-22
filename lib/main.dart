@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gnxapp/routes/routes.dart';
+import 'package:gnxapp/events/events.dart';
 import 'package:gnxapp/subscribe/subscribe.dart';
 
 void main() => runApp(MyApp());
@@ -21,11 +21,7 @@ class MyApp extends StatelessWidget {
           bodyText2: TextStyle(fontSize: 16.0, color: Color(0xFF3E3636)),
         ),
       ),
-      home: Subscribe(),
-      routes: {
-        // Direct your route variables to their respective page
-        Routes.subscribeRoute: (context) => Subscribe(),
-      },
+      home: Events(),
     );
   }
 }

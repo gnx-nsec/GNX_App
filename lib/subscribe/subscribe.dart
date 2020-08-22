@@ -1,7 +1,6 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:gnxapp/drawer/appDrawer.dart';
 
 class Subscribe extends StatefulWidget {
   static const String routeName = 'subscribe_screen';
@@ -38,7 +37,7 @@ class _SubscribeState extends State<Subscribe> {
             ),
           ],
         ),
-        drawer: AppDrawer(),
+        drawer: Drawer(),
         body: Stack(
           children: <Widget>[
             // Top red container
