@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 class Subscribe extends StatefulWidget {
   static const String routeName = 'subscribe_screen';
-  
+
   @override
   _SubscribeState createState() => _SubscribeState();
 }
@@ -16,8 +16,10 @@ class _SubscribeState extends State<Subscribe> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: Color(0xFFF5EDED),
         resizeToAvoidBottomPadding: false,
         appBar: AppBar(
+          backgroundColor: Color(0xFFD72323),
           elevation: 0,
           title: Text('GNX'),
           actions: <Widget>[
@@ -45,7 +47,7 @@ class _SubscribeState extends State<Subscribe> {
               alignment: Alignment.topLeft,
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height * 0.25,
-              color: Theme.of(context).primaryColor,
+              color: Color(0xFFD72323),
               child: Padding(
                 padding: const EdgeInsets.all(15.0),
                 child: Text(
@@ -90,96 +92,20 @@ class _SubscribeState extends State<Subscribe> {
                               ),
                               onPressed: () {},
                             ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(vertical: 10.0),
-                              child: TextField(
-                                style: Theme.of(context).textTheme.bodyText1,
-                                decoration: InputDecoration(
-                                  contentPadding: EdgeInsets.symmetric(
-                                    horizontal: 20.0,
-                                    vertical: 10.0,
-                                  ),
-                                  filled: true,
-                                  fillColor: Color(0xFFF5EDED),
-                                  border: OutlineInputBorder(
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(15.0)),
-                                    borderSide: BorderSide.none,
-                                  ),
-                                  hintText: 'User Name',
-                                  hintStyle:
-                                      Theme.of(context).textTheme.bodyText2,
-                                  suffixIcon: Icon(
-                                    Icons.edit,
-                                    color: Color(0xFF3E3636),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(vertical: 10.0),
-                              child: TextField(
-                                style: Theme.of(context).textTheme.bodyText1,
-                                keyboardType: TextInputType.emailAddress,
-                                decoration: InputDecoration(
-                                  contentPadding: EdgeInsets.symmetric(
-                                    horizontal: 20.0,
-                                    vertical: 10.0,
-                                  ),
-                                  filled: true,
-                                  fillColor: Color(0xFFF5EDED),
-                                  border: OutlineInputBorder(
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(15.0)),
-                                    borderSide: BorderSide.none,
-                                  ),
-                                  hintText: 'Email',
-                                  hintStyle:
-                                      Theme.of(context).textTheme.bodyText2,
-                                  suffixIcon: Icon(
-                                    Icons.edit,
-                                    color: Color(0xFF3E3636),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(vertical: 10.0),
-                              child: TextField(
-                                style: Theme.of(context).textTheme.bodyText1,
-                                keyboardType: TextInputType.phone,
-                                decoration: InputDecoration(
-                                  contentPadding: EdgeInsets.symmetric(
-                                    horizontal: 20.0,
-                                    vertical: 10.0,
-                                  ),
-                                  filled: true,
-                                  fillColor: Color(0xFFF5EDED),
-                                  border: OutlineInputBorder(
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(15.0)),
-                                    borderSide: BorderSide.none,
-                                  ),
-                                  hintText: 'Phone',
-                                  hintStyle:
-                                      Theme.of(context).textTheme.bodyText2,
-                                  suffixIcon: Icon(
-                                    Icons.edit,
-                                    color: Color(0xFF3E3636),
-                                  ),
-                                ),
-                              ),
-                            ),
+
+                            //TextFields
+                            InputBox(text: "User Name"),
+                            InputBox(text: "Email"),
+                            InputBox(text: "Phone"),
+
+                            //CheckBox
                             ListTileTheme(
                               contentPadding: EdgeInsets.all(0),
                               child: CheckboxListTile(
                                 controlAffinity:
                                     ListTileControlAffinity.leading,
                                 checkColor: Colors.white,
-                                activeColor: Theme.of(context).primaryColor,
+                                activeColor: Color(0xFFD72323),
                                 title: const Text('Receive newsletter mails'),
                                 value: _termsChecked,
                                 onChanged: (value) {
@@ -211,7 +137,7 @@ class _SubscribeState extends State<Subscribe> {
                       child: RawMaterialButton(
                         onPressed: () {},
                         elevation: 3.0,
-                        fillColor: Theme.of(context).primaryColor,
+                        fillColor: Color(0xFFD72323),
                         child: Icon(
                           Icons.check,
                           size: 35.0,
@@ -226,6 +152,47 @@ class _SubscribeState extends State<Subscribe> {
               ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class InputBox extends StatelessWidget {
+  const InputBox({
+    @required this.text,
+  });
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 10.0),
+      child: TextField(
+        style: TextStyle(
+          fontSize: 16.0,
+          color: Color(0xFF000000),
+        ),
+        decoration: InputDecoration(
+          contentPadding: EdgeInsets.symmetric(
+            horizontal: 20.0,
+            vertical: 10.0,
+          ),
+          filled: true,
+          fillColor: Color(0xFFF5EDED),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(15.0)),
+            borderSide: BorderSide.none,
+          ),
+          hintText: text,
+          hintStyle: TextStyle(
+            fontSize: 16.0,
+            color: Color(0xFF3E3636),
+          ),
+          suffixIcon: Icon(
+            Icons.edit,
+            color: Color(0xFF3E3636),
+          ),
         ),
       ),
     );

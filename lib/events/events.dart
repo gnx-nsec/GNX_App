@@ -34,8 +34,10 @@ class _EventsState extends State<Events> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: Color(0xFFF5EDED),
         resizeToAvoidBottomPadding: false,
         appBar: AppBar(
+          backgroundColor: Color(0xFFD72323),
           elevation: 0,
           title: Text('GNX'),
           actions: <Widget>[
