@@ -41,7 +41,7 @@ class DrawerState extends State<NavDrawer> {
                   )
                 ],
               ),
-              decoration: BoxDecoration(color: Color(0xfff57c00)),
+              decoration: BoxDecoration(color: Color(0xFFD72323)),
             ),
           ),
           ListTile(

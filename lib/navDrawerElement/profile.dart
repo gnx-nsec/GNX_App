@@ -15,7 +15,7 @@ class ProfileState extends State<Profile> {
       child: Scaffold(
         resizeToAvoidBottomPadding: false,
         appBar: AppBar(
-          backgroundColor: Color(0xffff6f00),
+          backgroundColor: Color(0xFFD72323),
           elevation: 0,
           title: Text('GNX'),
           actions: <Widget>[
@@ -42,7 +42,7 @@ class ProfileState extends State<Profile> {
               alignment: Alignment.topLeft,
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height * 0.25,
-              color: Color(0xffff6f00),
+              color: Color(0xFFD72323),
               child: Padding(
                 padding: const EdgeInsets.all(15.0),
                 child: Text(
@@ -176,7 +176,7 @@ class ProfileState extends State<Profile> {
                                 controlAffinity:
                                     ListTileControlAffinity.leading,
                                 checkColor: Colors.white,
-                                activeColor: Theme.of(context).primaryColor,
+                                activeColor: Colors.red[300],
                                 title: const Text('Receive newsletter mails'),
                                 value: _termsChecked,
                                 onChanged: (value) {
@@ -196,8 +196,8 @@ class ProfileState extends State<Profile> {
                   Align(
                     alignment: Alignment.topCenter,
                     child: CircleAvatar(
-                      radius: 45.0,
-                      backgroundColor: Colors.blueAccent,
+                      radius: 55.0,
+                      backgroundColor: Colors.red[300],
                     ),
                   ),
 
@@ -208,7 +208,7 @@ class ProfileState extends State<Profile> {
                       child: RawMaterialButton(
                         onPressed: () {},
                         elevation: 3.0,
-                        fillColor: Theme.of(context).primaryColor,
+                        fillColor: Colors.red[300],
                         child: Icon(
                           Icons.check,
                           size: 35.0,

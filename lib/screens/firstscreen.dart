@@ -21,7 +21,7 @@ class FirstScreenState extends State<FirstScreen> {
     return Scaffold(
       drawer: NavDrawer(),
       appBar: AppBar(
-        backgroundColor: Color(0xffff6f00),
+        backgroundColor: Color(0xFFD72323),
         title: Text('GNX'),
       ),
     );
