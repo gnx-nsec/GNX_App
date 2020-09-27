@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:gnxapp/events/eventClass.dart';
+import 'package:http/http.dart' as http;
 
 class Events extends StatefulWidget {
   static const String routeName = 'events_screen';
@@ -8,27 +10,31 @@ class Events extends StatefulWidget {
 }
 
 class _EventsState extends State<Events> {
-  List<String> eventName = [
-    "Event 1",
-    "Event 2",
-    "Event 3",
-    "Event 4",
-    "Event 5",
-  ];
-  List<String> eventDesc = [
-    "Lists are Iterable. Iteration occurs over values in index order.",
-    "Lists are Iterable. Iteration occurs over values in index order.",
-    "Lists are Iterable. Iteration occurs over values in index order.",
-    "Lists are Iterable. Iteration occurs over values in index order.",
-    "Lists are Iterable. Iteration occurs over values in index order.",
-  ];
-  List<String> eventDate = [
-    "19 June",
-    "12 July",
-    "25 July",
-    "22 August",
-    "7 October",
-  ];
+  String url = "https://gnx-backend.herokuapp.com/event/view";
+  List<EventClass> _eventClass;
+
+  @override
+  void initState() {
+    super.initState();
+    this.assignList();
+  }
+
+  void assignList() async {
+    List<EventClass> eClass = await getJsonData();
+    setState(() {
+      _eventClass = eClass;
+    });
+  }
+
+  Future<List<EventClass>> getJsonData() async {
+    final response = await http.post(url);
+
+    if (response.statusCode == 200) {
+      return eventClassFromJson(response.body);
+    } else {
+      throw Exception('Failed to load event data');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -93,11 +99,13 @@ class _EventsState extends State<Events> {
                     ),
 
                     //Display all events
-                    for (int i = 0; i < eventName.length; i++)
+                    for (int i = 0;
+                        i < (_eventClass == null ? 0 : _eventClass.length);
+                        i++)
                       EventCard(
-                        eName: eventName[i],
-                        eDate: eventDate[i],
-                        eDesc: eventDesc[i],
+                        eName: _eventClass[i].name,
+                        eDate: _eventClass[i].date,
+                        eDesc: _eventClass[i].speakerDes,
                       )
                   ],
                 ),
@@ -163,7 +171,7 @@ class EventCard extends StatelessWidget {
                 ),
                 //Date
                 Text(
-                  eDate,
+                  eDate == null ? "No date given" : eDate,
                   style: TextStyle(
                     color: Color(0xFF3E3636),
                     fontSize: 16.0,
@@ -176,7 +184,7 @@ class EventCard extends StatelessWidget {
 
                 //Description
                 Text(
-                  eDesc,
+                  eDesc == null ? "No description given" : eDesc,
                   style: TextStyle(
                     color: Colors.black,
                     fontSize: 16.0,
