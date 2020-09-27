@@ -171,7 +171,7 @@ class EventCard extends StatelessWidget {
                 ),
                 //Date
                 Text(
-                  eDate == null ? "No date given" : eDate,
+                  eDate,
                   style: TextStyle(
                     color: Color(0xFF3E3636),
                     fontSize: 16.0,
@@ -184,7 +184,7 @@ class EventCard extends StatelessWidget {
 
                 //Description
                 Text(
-                  eDesc == null ? "No description given" : eDesc,
+                  eDesc,
                   style: TextStyle(
                     color: Colors.black,
                     fontSize: 16.0,
