@@ -13,6 +13,16 @@ class AboutUsState extends State<AboutUs> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xFFD72323),
+        title: Text('GNX'),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(
+              Icons.search,
+              color: Colors.white,
+            ),
+            onPressed: () {},
+          ),
+        ],
       ),
       body: Column(
         children: <Widget>[

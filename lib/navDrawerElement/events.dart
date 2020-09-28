@@ -1,32 +1,41 @@
-import 'package:flutter/material.dart';
+/*import 'package:flutter/material.dart';
+import 'package:gnxapp/NavDrawer.dart';
+import 'package:gnxapp/class/eventClass.dart';
+import 'package:http/http.dart' as http;
 
 class Events extends StatefulWidget {
+  static const String routeName = 'events_screen';
+
   @override
-  State<StatefulWidget> createState() => EventsState();
+  _EventsState createState() => _EventsState();
 }
 
-class EventsState extends State<Events> {
-  List<String> eventName = [
-    "Event 1",
-    "Event 2",
-    "Event 3",
-    "Event 4",
-    "Event 5",
-  ];
-  List<String> eventDesc = [
-    "Lists are Iterable. Iteration occurs over values in index order.",
-    "Lists are Iterable. Iteration occurs over values in index order.",
-    "Lists are Iterable. Iteration occurs over values in index order.",
-    "Lists are Iterable. Iteration occurs over values in index order.",
-    "Lists are Iterable. Iteration occurs over values in index order.",
-  ];
-  List<String> eventDate = [
-    "19 June",
-    "12 July",
-    "25 July",
-    "22 August",
-    "7 October",
-  ];
+class _EventsState extends State<Events> {
+  String url = "https://gnx-backend.herokuapp.com/event/view";
+  List<EventClass> _eventClass;
+
+  @override
+  void initState() {
+    super.initState();
+    this.assignList();
+  }
+
+  void assignList() async {
+    List<EventClass> eClass = await getJsonData();
+    setState(() {
+      _eventClass = eClass;
+    });
+  }
+
+  Future<List<EventClass>> getJsonData() async {
+    final response = await http.post(url);
+
+    if (response.statusCode == 200) {
+      return eventClassFromJson(response.body);
+    } else {
+      throw Exception('Failed to load event data');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -55,6 +64,7 @@ class EventsState extends State<Events> {
             ),
           ],
         ),
+        drawer: NavDrawer(),
         body: Stack(
           alignment: Alignment.topCenter,
           children: <Widget>[
@@ -64,7 +74,7 @@ class EventsState extends State<Events> {
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: NetworkImage(
-                      "https://th.bing.com/th/id/OIP.42o19s3hCWoZVvFKlnD60AHaEK?pid=Api&rs=1"),
+                      "https://prestigiousvenues.com/wp-content/uploads/2019/03/Event-Production-For-Corporate-Event-Eclipse-AV-Prestigious-Venues.jpg"),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -87,15 +97,17 @@ class EventsState extends State<Events> {
                       ),
                     ),
                     SizedBox(
-                      height: 20.0,
+                      height: 60.0,
                     ),
 
                     //Display all events
-                    for (int i = 0; i < eventName.length; i++)
+                    for (int i = 0;
+                        i < (_eventClass == null ? 0 : _eventClass.length);
+                        i++)
                       EventCard(
-                        eName: eventName[i],
-                        eDate: eventDate[i],
-                        eDesc: eventDesc[i],
+                        eName: _eventClass[i].name,
+                        eDate: _eventClass[i].date,
+                        eDesc: _eventClass[i].speakerDes,
                       )
                   ],
                 ),
@@ -129,7 +141,7 @@ class EventCard extends StatelessWidget {
           ),
           elevation: 8.0,
           shadowColor: Colors.black,
-          color: Colors.white,
+          color: Colors.red[300],
           child: Padding(
             padding: EdgeInsets.all(15.0),
             child: Column(
@@ -191,4 +203,4 @@ class EventCard extends StatelessWidget {
       ],
     );
   }
-}
+}*/

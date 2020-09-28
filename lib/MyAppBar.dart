@@ -54,13 +54,6 @@ class MainBarState extends State<MainBar> {
                   });
                 }),
           ),
-          SizedBox(
-            width: 20.0,
-          ),
-          Container(
-            width: 30.0,
-            child: IconButton(icon: cusIcon1, onPressed: null),
-          )
         ],
       ),
     );

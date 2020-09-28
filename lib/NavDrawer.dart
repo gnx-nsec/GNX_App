@@ -52,20 +52,20 @@ class DrawerState extends State<NavDrawer> {
                   context, MaterialPageRoute(builder: (context) => Profile()));
             },
           ),
-          ListTile(
+          /*ListTile(
             leading: Icon(Icons.event),
             title: Text("EVENTS"),
             onTap: () {
               Navigator.push(
                   context, MaterialPageRoute(builder: (context) => Events()));
             },
-          ),
+          ),*/
           ListTile(
             leading: Icon(Icons.chat),
             title: Text("BLOGS"),
             onTap: () {
               Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => Blogs()));
+                  context, MaterialPageRoute(builder: (context) => Blog()));
             },
           ),
           ListTile(

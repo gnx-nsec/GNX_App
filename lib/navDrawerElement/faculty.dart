@@ -46,13 +46,6 @@ class FacultyState extends State<Faculty> {
               ),
               onPressed: () {},
             ),
-            IconButton(
-              icon: Icon(
-                Icons.person,
-                color: Colors.white,
-              ),
-              onPressed: () {},
-            ),
           ],
         ),
         body: Stack(
