@@ -134,7 +134,7 @@ class EventCard extends StatelessWidget {
           ),
           elevation: 8.0,
           shadowColor: Colors.black,
-          color: Colors.red[300],
+          color: Colors.white,
           child: Padding(
             padding: EdgeInsets.all(15.0),
             child: Column(
